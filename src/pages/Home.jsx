@@ -4,6 +4,9 @@ import {
 } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { getUsers } from '../api/users';
+
+
+
 const Home = () => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(50);
@@ -14,33 +17,14 @@ const usersListQuery = useQuery({
   keepPreviousData : true
 })
 
-console.log({usersListQuery})
-
-  // const  fetchProjects = (page, limit) => fetch(`https://randomuser.me/api/?page=${page}&results=${limit || 50}`).then((res) => res.json())
-  // const {
-  //   isLoading,
-  //   isError,
-  //   error,
-  //   data,
-  //   isFetching,
-  //   isPreviousData,
-  // } = useQuery({
-  //   queryKey: ['users', page, limit],
-  //   queryFn: () => fetchProjects(page, limit),
-  //   keepPreviousData : true
-  // })
-
-// console.log({data, isPreviousData})
 const handleSelectChange = (event) => {
   setLimit(event.target.value);
-  console.log(limit)
 };
 
-console.log(page)
   return (
     <>
 {
-  usersListQuery?.isLoading ? <h2>Loading...</h2> :
+  usersListQuery?.isLoading ? <h2 > Loading...</h2> :
   <>
   <div className="max-w-2xl mx-auto">
       
